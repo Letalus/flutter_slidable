@@ -928,11 +928,11 @@ class SlidableState extends State<Slidable>
               return true;
             }());
 
-            content = SizeTransition(
-              sizeFactor: _resizeAnimation!,
-              axis: _directionIsXAxis ? Axis.vertical : Axis.horizontal,
-              child: Transform.translate(
-                offset: Offset(20,20),
+            content = Transform(
+              transform: Matrix4.diagonal3Values(1.5, 1, 1),
+              child: SizeTransition(
+                sizeFactor: _resizeAnimation!,
+                axis: _directionIsXAxis ? Axis.vertical : Axis.horizontal,
                 child: SizedBox(
                   width: _sizePriorToCollapse!.width,
                   height: _sizePriorToCollapse!.height,
